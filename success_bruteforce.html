@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation Complete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0d1117;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #00ff9d;
+        }
+        .card {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            max-width: 500px;
+        }
+        .card h1 {
+            font-size: 2.5rem;
+            color: #00ff9d;
+            text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d;
+        }
+        .card p {
+            font-size: 1.2rem;
+            color: #b8d7e6;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .btn-custom {
+            padding: 12px 20px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: black;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #00ff9d, #009688);
+            box-shadow: 0px 4px 10px rgba(0, 255, 157, 0.3);
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+            width: 200px;
+        }
+        .btn-custom:hover {
+            background: linear-gradient(45deg, #009688, #00ff9d);
+            transform: scale(1.05);
+        }
+        .success-icon {
+            font-size: 5rem;
+            color: #00ff9d;
+            animation: pop 0.5s ease-in-out;
+            text-shadow: 0 0 20px #00ff9d, 0 0 40px #00ff9d;
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="success-icon">✔️</div>
+        <h1>Simulation Complete!</h1>
+        <p>The brute-force simulation has finished successfully.</p>
+
+        <!-- ✅ Auto-Redirect to Security Tips -->
+        <script>
+            window.onload = function() {
+                setTimeout(function() {
+                    window.location.href = "/security_tips?attack_type=bruteforce_realtime";
+                }, 3000);  // ✅ Redirect after 3 seconds
+            };
+        </script>
+
+        <!-- ✅ Buttons for Manual Navigation -->
+        <div class="btn-group">
+            <a href="{{ url_for('security_tips', attack_type='bruteforce_realtime') }}" class="btn-custom">🔍 View Tips and Tricks</a>
+        </div>
+    </div>
+
+</body>
+</html>
